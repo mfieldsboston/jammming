@@ -12,7 +12,7 @@ class App extends Component {
           <div className="App-playlist">
           </div>
         </div>
-    </div>
+      </div>
     );
   }
 }
