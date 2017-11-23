@@ -27,16 +27,11 @@ class App extends Component {
     this.removeTrack = this.removeTrack.bind(this);
   }
 
-  addTrack() {
+  addTrack(track) {
     this.setState({isRemoval: true});
-  }
+    console.log(track);
 
-  /*addTrack(track){
-    this.setState({isRemoval: true});
-    let tracks = this.state.playlistTracks;
-    tracks.push(track);
-    this.setState({playlistTracks: tracks});
-  }*/
+  }
 
   removeTrack() {
     this.setState({isRemoval: false});
