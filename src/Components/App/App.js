@@ -9,22 +9,22 @@ class App extends Component {
     super(props);
       this.state = { searchResults:
         [
-          {name: '1'},
-          {artist: '2'},
-          {album: '3'}
-        ]
+          {name: 'Movin on up'},
+          {artist: 'George Jefferson'},
+          {album: 'The Jefferson Album'}
+        ],
+        isRemoval: false
     };
   }
 
   render() {
-    //console.log(this.state.searchResults, 'State Prop');
     return (
       <div>
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
         <div className="App">
           <SearchBar />
           <div className="App-playlist">
-          <SearchResults searchResults={this.state.searchResults}/>
+          <SearchResults searchResults={this.state.searchResults} isRemoval={this.state.isRemoval}/>
           <Playlist />
           </div>
         </div>
