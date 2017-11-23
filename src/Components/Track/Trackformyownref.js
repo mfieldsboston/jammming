@@ -4,32 +4,32 @@ import './Track.css';
 class Track extends React.Component {
   constructor(props) {
     super(props);
-    this.handleClickAddTrack = this.handleClickAddTrack.bind(this);
-    this.handleClickRemoveTrack = this.handleClickRemoveTrack.bind(this);
+    /*this.state = {isRemoval: false};
+    +*/
   }
 
-  handleClickAddTrack(e) {
-  const name = e.target.value;
-  this.props.addTrack(name);
-}
+  /*addTrack() {
+    this.setState({isRemoval: true});
+  }
 
-handleClickRemoveTrack(e) {
-const name = e.target.value;
-this.props.removeTrack(name);
-}
+  removeTrack() {
+    this.setState({isRemoval: false});
+  }*/
 
   renderAction() {
+    /*const isRemoval = this.state.isRemoval;*/
     const isRemoval = this.props.isRemoval;
 
     if (isRemoval) {
-      return <a className="Track-action" onClick={this.handleClickRemoveTrack}>-</a>;
+      return <a className="Track-action" onClick={this.removeTrack}>-</a>;
     }
     else {
-      return <a className="Track-action" onClick={this.handleClickAddTrack}>+</a>;
+      return <a className="Track-action" onClick={this.addTrack}>+</a>;
     }
   }
 
   render() {
+    console.log(this.props.isRemoval, 'Props.isRemoval');
     return(
       <div className="Track">
         <div className="Track-information">

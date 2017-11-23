@@ -14,6 +14,7 @@ class App extends Component {
           {name: 'Sing A Hymn', artist: 'Top Choice Clique', album: 'Real Chemistry: The Anthology'}
         ],
         playlistName: 'testing',
+        isRemoval: false,
         playlistTracks:
           [
             {name: 'Turmoil In The Land (vox version)', artist: 'FORCEFEELD', album: 'N/A'},
@@ -21,12 +22,23 @@ class App extends Component {
             {name: 'Growing Pains', artist: 'FORCEFEELD', album: 'N/A'}
           ]
     };
+
+    this.addTrack = this.addTrack.bind(this);
+    this.removeTrack = this.removeTrack.bind(this);
   }
 
-  addTrack(track){
+  addTrack() {
+    this.setState({isRemoval: true});
+  }
+
+  /*addTrack(track){
     let tracks = this.state.playlistTracks;
     tracks.push(track);
     this.setState({playlistTracks: tracks});
+  }*/
+
+  removeTrack() {
+    this.setState({isRemoval: false});
   }
 
   render() {
@@ -36,7 +48,7 @@ class App extends Component {
         <div className="App">
           <SearchBar />
           <div className="App-playlist">
-          <SearchResults searchResults={this.state.searchResults}/>
+          <SearchResults searchResults={this.state.searchResults} isRemoval={this.state.isRemoval} addTrack={this.addTrack} removeTrack={this.removeTrack}/>
           <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} />
           </div>
         </div>
