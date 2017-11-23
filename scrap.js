@@ -10,7 +10,8 @@
 }
 
 
-/*let business = {
+let business = {
   imageSrc: 'https://s3.amazonaws.com/codecademy-content/programs/react/ravenous/pizza.jpg',
   name: 'MarginOtto Pizzeria',
   address: '1010 Paddington Way',
+}

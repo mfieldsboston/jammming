@@ -9,12 +9,25 @@ class App extends Component {
     super(props);
       this.state = { searchResults:
         [
-          {name: 'Movin on up'},
-          {artist: 'George Jefferson'},
-          {album: 'The Jefferson Album'}
+          {name: 'I Think to Myself', artist: 'Top Choice Clique', album: 'Real Chemistry: The Anthology'},
+          {name: 'Push It Past Red', artist: 'Top Choice Clique', album: 'Real Chemistry: The Anthology'},
+          {name: 'Sing A Hymn', artist: 'Top Choice Clique', album: 'Real Chemistry: The Anthology'}
         ],
-        isRemoval: false
+        isRemoval: false,
+        playlistName: 'testing',
+        playlistTracks:
+          [
+            {name: 'Turmoil In The Land (vox version)', artist: 'FORCEFEELD', album: 'N/A'},
+            {name: 'Noble Knight', artist: 'FORCEFEELD (Force the Sorcerer)', album: 'Noble Knights EP'},
+            {name: 'Growing Pains', artist: 'FORCEFEELD', album: 'N/A'}
+          ]
     };
+  }
+
+  addTrack(track){
+    let tracks = this.state.playlistTracks;
+    tracks.push(track);
+    this.setState({playlistTracks: tracks});
   }
 
   render() {
@@ -25,7 +38,7 @@ class App extends Component {
           <SearchBar />
           <div className="App-playlist">
           <SearchResults searchResults={this.state.searchResults} isRemoval={this.state.isRemoval}/>
-          <Playlist />
+          <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} />
           </div>
         </div>
       </div>
