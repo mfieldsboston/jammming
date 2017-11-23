@@ -21,7 +21,7 @@ class Track extends React.Component {
   }
 
   render() {
-    return (
+    return(
       <div className="Track">
         <div className="Track-information">
           <h3>{this.props.track.name}</h3>
