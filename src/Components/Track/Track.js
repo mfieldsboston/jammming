@@ -2,7 +2,10 @@ import React from 'react';
 import './Track.css';
 
 class Track extends React.Component {
-
+  constructor(props) {
+    super(props);
+    this.state = {isRemoval: false};
+  }
   addTrack() {
     console.log('add');
   }
@@ -12,7 +15,7 @@ class Track extends React.Component {
   }
 
   renderAction() {
-    if (this.props.isRemoval) {
+    if (this.state.isRemoval) {
       return <a className="Track-action" onClick={this.removeTrack}>-</a>;
     }
     else {

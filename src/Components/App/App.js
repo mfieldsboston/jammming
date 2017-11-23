@@ -13,7 +13,6 @@ class App extends Component {
           {name: 'Push It Past Red', artist: 'Top Choice Clique', album: 'Real Chemistry: The Anthology'},
           {name: 'Sing A Hymn', artist: 'Top Choice Clique', album: 'Real Chemistry: The Anthology'}
         ],
-        isRemoval: false,
         playlistName: 'testing',
         playlistTracks:
           [
@@ -37,7 +36,7 @@ class App extends Component {
         <div className="App">
           <SearchBar />
           <div className="App-playlist">
-          <SearchResults searchResults={this.state.searchResults} isRemoval={this.state.isRemoval}/>
+          <SearchResults searchResults={this.state.searchResults}/>
           <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} />
           </div>
         </div>
