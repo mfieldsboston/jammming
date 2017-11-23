@@ -32,6 +32,7 @@ class App extends Component {
   }
 
   /*addTrack(track){
+    this.setState({isRemoval: true});
     let tracks = this.state.playlistTracks;
     tracks.push(track);
     this.setState({playlistTracks: tracks});
@@ -48,7 +49,8 @@ class App extends Component {
         <div className="App">
           <SearchBar />
           <div className="App-playlist">
-          <SearchResults searchResults={this.state.searchResults} isRemoval={this.state.isRemoval} addTrack={this.addTrack} removeTrack={this.removeTrack}/>
+          <SearchResults searchResults={this.state.searchResults} isRemoval={this.state.isRemoval}
+            addTrack={this.addTrack} removeTrack={this.removeTrack}/>
           <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} />
           </div>
         </div>
