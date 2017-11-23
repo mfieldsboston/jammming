@@ -5,17 +5,22 @@ class Track extends React.Component {
   constructor(props) {
     super(props);
     this.state = {isRemoval: false};
+    this.addTrack = this.addTrack.bind(this);
+    this.removeTrack = this.removeTrack.bind(this);
   }
+
   addTrack() {
-    console.log('add');
+    this.setState({isRemoval: true});
   }
 
   removeTrack() {
-    console.log('remove');
+    this.setState({isRemoval: false});
   }
 
   renderAction() {
-    if (this.state.isRemoval) {
+    const isRemoval = this.state.isRemoval;
+
+    if (isRemoval) {
       return <a className="Track-action" onClick={this.removeTrack}>-</a>;
     }
     else {
