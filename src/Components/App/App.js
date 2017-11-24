@@ -23,17 +23,7 @@ class App extends Component {
     };
   }
 
-  // Lung
-  // If the track is not already in the playlist, add it
-  addTrack(track){
-    let tracks = this.state.playlistTracks;
-    tracks.push(track);
-
-    this.setState({playlistTracks: tracks});
-  }
-
-  // Roy
-  // If the track is not already in the playlist, add it
+  // Roy => If the track is not already in the playlist, add it
   addTrack(track) {
     let inPlaylist = false;
       this.state.playlistTracks.forEach(trackObj=> {
@@ -48,43 +38,29 @@ class App extends Component {
         }
       }
 
-  // Kincaid
-  // If the track is not already in the playlist, add it
-  addTrack(track) {
+  // Kincaid => If the track is not already in the playlist, add it
+  /*addTrack(track) {
       if (!this.state.playlistTracks.find(playlistTrack => playlistTrack.id === track.id)) {
         this.setState(prevState => ({
           playlistTracks: [...prevState.playlistTracks, track]
         }));
       }
-    }
+    }*/
 
-// Lung
-// Find a track by the id and remove it from the playlistTracks array
-  removeTrack(track){
-    let tracks = this.state.playlistTracks
-    tracks = tracks.filter(
-      currentTrack => currentTrack.id !== track.id
-    );
-    this.setState({playlistTracks: tracks});
-  }
-
-// Roy
-// Find a track by the id and remove it from the playlistTracks array
-  removeTrack(track) {
+// Roy => Find a track by the id and remove it from the playlistTracks array
+  /*removeTrack(track) {
       let tracks = this.state.playlistTracks;
       tracks = tracks.filter(currentTrack => currentTrack.id !== track.id);
-
       this.setState({playlistTracks: tracks});
-  }
+  }*/
 
-// Kincaid
-// Find a track by the id and remove it from the playlistTracks array
-removeTrack(track) {
+// Kincaid => Find a track by the id and remove it from the playlistTracks array
+/*removeTrack(track) {
   this.setState({
     playlistTracks: this.state.playlistTracks.filter(
     playlistTrack => playlistTrack.id !== track.id)
   });
-}
+}*/
 
   render() {
     return (

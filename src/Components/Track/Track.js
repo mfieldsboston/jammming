@@ -10,12 +10,13 @@ class Track extends React.Component {
   }
 
   addTrack() {
-    console.log('Add track from Track.js:', 'Track:', this.props.track, 'isRemoval:', this.props.isRemoval);
+    console.log('Track:', this.props.track);
+    //console.log('Add track from Track.js:', 'Track:', this.props.track, 'isRemoval:', this.props.isRemoval);
     //this.props.onAdd(this.props.track);
   }
 
   removeTrack() {
-    console.log('Remove track from Track.js', 'Track:', this.props.track, 'isRemoval:', this.props.isRemoval);
+    //console.log('Remove track from Track.js', 'Track:', this.props.track, 'isRemoval:', this.props.isRemoval);
     //this.props.onRemove(this.props.track);
   }
 
