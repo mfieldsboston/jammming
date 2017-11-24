@@ -11,9 +11,11 @@ class App extends Component {
         [
           {name: 'I Think to Myself', artist: 'Top Choice Clique', album: 'Real Chemistry: The Anthology'},
           {name: 'Push It Past Red', artist: 'Top Choice Clique', album: 'Real Chemistry: The Anthology'},
-          {name: 'Sing A Hymn', artist: 'Top Choice Clique', album: 'Real Chemistry: The Anthology'}
+          {name: 'Sing A Hymn', artist: 'Top Choice Clique', album: 'Real Chemistry: The Anthology'},
+          {name: 'Peace of Mind', artist: 'Top Choice Clique', album: 'Real Chemistry: The Anthology'},
+          {name: 'Eye of the Cyclone', artist: 'Top Choice Clique', album: 'Real Chemistry: The Anthology'}
         ],
-        playlistName: 'testing',
+        playlistName: 'FORCEFEELD Playlist',
         playlistTracks:
           [
             {name: 'Turmoil In The Land (vox version)', artist: 'FORCEFEELD', album: 'N/A'},
