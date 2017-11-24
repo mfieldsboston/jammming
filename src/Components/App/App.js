@@ -21,10 +21,70 @@ class App extends Component {
             {name: 'Growing Pains', artist: 'FORCEFEELD', album: 'N/A'}
           ]
     };
-
   }
 
+  // Lung
+  // If the track is not already in the playlist, add it
+  addTrack(track){
+    let tracks = this.state.playlistTracks;
+    tracks.push(track);
 
+    this.setState({playlistTracks: tracks});
+  }
+
+  // Roy
+  // If the track is not already in the playlist, add it
+  addTrack(track) {
+    let inPlaylist = false;
+      this.state.playlistTracks.forEach(trackObj=> {
+        if (trackObj.id === track.id ) {
+          inPlaylist = true;
+        }
+      });
+        if (!inPlaylist) {
+          let tracks = this.state.playlistTracks;
+          tracks.push(track);
+          this.setState({playlistTracks: tracks});
+        }
+      }
+
+  // Kincaid
+  // If the track is not already in the playlist, add it
+  addTrack(track) {
+      if (!this.state.playlistTracks.find(playlistTrack => playlistTrack.id === track.id)) {
+        this.setState(prevState => ({
+          playlistTracks: [...prevState.playlistTracks, track]
+        }));
+      }
+    }
+
+// Lung
+// Find a track by the id and remove it from the playlistTracks array
+  removeTrack(track){
+    let tracks = this.state.playlistTracks
+    tracks = tracks.filter(
+      currentTrack => currentTrack.id !== track.id
+    );
+    this.setState({playlistTracks: tracks});
+  }
+
+// Roy
+// Find a track by the id and remove it from the playlistTracks array
+  removeTrack(track) {
+      let tracks = this.state.playlistTracks;
+      tracks = tracks.filter(currentTrack => currentTrack.id !== track.id);
+
+      this.setState({playlistTracks: tracks});
+  }
+
+// Kincaid
+// Find a track by the id and remove it from the playlistTracks array
+removeTrack(track) {
+  this.setState({
+    playlistTracks: this.state.playlistTracks.filter(
+    playlistTrack => playlistTrack.id !== track.id)
+  });
+}
 
   render() {
     return (
@@ -34,7 +94,7 @@ class App extends Component {
           <SearchBar />
           <div className="App-playlist">
           <SearchResults searchResults={this.state.searchResults}/>
-          <Playlist/>
+          <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks}/>
           </div>
         </div>
       </div>

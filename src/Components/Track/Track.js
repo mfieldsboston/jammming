@@ -4,28 +4,28 @@ import './Track.css';
 class Track extends React.Component {
   constructor(props) {
     super(props);
-    /*this.handleClickAddTrack = this.handleClickAddTrack.bind(this);
-    this.handleClickRemoveTrack = this.handleClickRemoveTrack.bind(this);*/
+    this.addTrack = this.addTrack.bind(this);
+    this.removeTrack = this.removeTrack.bind(this);
+
   }
 
-  /*handleClickAddTrack(e) {
-  const name = e.target.value;
-  this.props.addTrack(name);
-}*/
+  addTrack() {
+    console.log('Add track from Track.js:', 'Track:', this.props.track, 'isRemoval:', this.props.isRemoval);
+    //this.props.onAdd(this.props.track);
+  }
 
-/*handleClickRemoveTrack(e) {
-const name = e.target.value;
-this.props.removeTrack(name);
-}*/
+  removeTrack() {
+    console.log('Remove track from Track.js', 'Track:', this.props.track, 'isRemoval:', this.props.isRemoval);
+    //this.props.onRemove(this.props.track);
+  }
 
   renderAction() {
-    const isRemoval = this.props.isRemoval;
-
-    if (isRemoval) {
-      return <a className="Track-action">-</a>;
+    //let isRemoval = this.props.isRemoval;
+    if (this.props.isRemoval) {
+      return <a className="Track-action" onClick={this.removeTrack}>-</a>;
     }
     else {
-      return <a className="Track-action">+</a>;
+      return <a className="Track-action" onClick={this.addTrack}>+</a>;
     }
   }
 
