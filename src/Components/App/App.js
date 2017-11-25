@@ -29,10 +29,9 @@ class App extends Component {
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
   }
 
-// Roy => If the track is not already in the playlist, add it
   addTrack(track) {
     let inPlaylist = false;
-      this.state.playlistTracks.forEach(trackObj=> {
+      this.state.playlistTracks.forEach(trackObj => {
         if (trackObj.id === track.id ) {
           inPlaylist = true;
         }
@@ -44,19 +43,17 @@ class App extends Component {
         }
       }
 
-// Roy => Find a track by the id and remove it from the playlistTracks array
   removeTrack(track) {
       let tracks = this.state.playlistTracks;
       tracks = tracks.filter(currentTrack => currentTrack.id !== track.id);
       this.setState({playlistTracks: tracks});
   }
 
-  //Roy, Lung, Kincaid => Set the state of playlistName to a new value
   updatePlaylistName(name){
     this.setState({playlistName: name});
   }
 
-  // Kincaid => If the track is not already in the playlist, add it
+  // Alternate Add Track Approach
   /*addTrack(track) {
       if (!this.state.playlistTracks.find(playlistTrack => playlistTrack.id === track.id)) {
         this.setState(prevState => ({
@@ -65,7 +62,7 @@ class App extends Component {
       }
     }
 
-// Kincaid => Find a track by the id and remove it from the playlistTracks array
+// Alternate Remove Track Approach
 removeTrack(track) {
   this.setState({
     playlistTracks: this.state.playlistTracks.filter(
