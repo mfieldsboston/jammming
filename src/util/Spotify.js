@@ -1,4 +1,4 @@
-// Create variables for use in the Spotify Module
+// Create variables for use in the Spotify Module - FO
 const clientId = '6615e4eeeb8844aca74f20025fda1d51';
 const clientSecret = 'facc51f263dd4b97a528f4be1ff3e77b';
 const redirectUri = 'http://localhost:3000/';
@@ -60,6 +60,9 @@ const Spotify = {
                 uri: track.uri
              }));
         });
+      },
+      savePlaylist() {
+
       }
   };
 

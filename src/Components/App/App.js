@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+//import React from 'react';
 import './App.css';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
@@ -70,55 +71,7 @@ class App extends Component {
     });
   }
 
-  //1st alternate version  / Save Playlist
-  /*savePlaylist() {
-  let trackURIs = [];
-  this.state.playlistTracks.forEach(track => {
-    trackURIs.push(track.uri);
-  });
-  Spotify.savePlaylist(this.state.playlistName, trackURIs);
-  this.setState({
-    playlistName: 'New Playlist',
-    searchResults: []
-  });
-}*/
 
-//2nd alternate version / Save Playlist
-/*savePlaylist(){
-  const trackUris = this.state.playlistTracks.map(track => track.uri);
-  Spotify.savePlaylist(this.state.playlistName, trackUris).then(() => {
-    this.setState({playlistName: 'New Playlist',playlistTracks: []});
-  });
-}*/
-
-//3rd alternate version / Save Playlist
-/*savePlaylist() {
-  const trackUris = this.state.playlistTracks.map(playlistTrack => playlistTrack.uri);
-  Spotify.savePlaylist(this.state.playlistName, trackUris);
-  // Once the playlist is save set the state back to empty
-  this.setState({
-    playlistName: "Force's Playlist",
-    searchResults: [],
-    playlistTracks: []
-  });
-} */
-
-  // Alternate Add Track Approach
-  /*addTrack(track) {
-      if (!this.state.playlistTracks.find(playlistTrack => playlistTrack.id === track.id)) {
-        this.setState(prevState => ({
-          playlistTracks: [...prevState.playlistTracks, track]
-        }));
-      }
-    }
-
-// Alternate Remove Track Approach
-removeTrack(track) {
-  this.setState({
-    playlistTracks: this.state.playlistTracks.filter(
-    playlistTrack => playlistTrack.id !== track.id)
-  });
-}*/
 
   render() {
     console.log(this.state, 'state');
