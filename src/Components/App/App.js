@@ -10,7 +10,9 @@ class App extends Component {
   constructor(props) {
     super(props);
       this.state = {
-        searchResults:
+        searchResults: [],
+        playlistTracks: [],
+        /*searchResults:
         [
           {name: 'I Think to Myself', artist: 'Top Choice Clique', album: 'Real Chemistry: The Anthology'},
           {name: 'Push It Past Red', artist: 'Top Choice Clique', album: 'Real Chemistry: The Anthology'},
@@ -23,8 +25,8 @@ class App extends Component {
             {name: 'Turmoil In The Land (vox version)', artist: 'FORCEFEELD', album: 'N/A'},
             {name: 'Noble Knight', artist: 'FORCEFEELD (Force the Sorcerer)', album: 'Noble Knights EP'},
             {name: 'Growing Pains', artist: 'FORCEFEELD', album: 'N/A'}
-          ],
-          playlistName: 'FORCEFEELD Playlist'
+          ],*/
+          playlistName: 'FORCE Playlist'
     };
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
