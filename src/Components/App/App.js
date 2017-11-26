@@ -3,6 +3,7 @@ import './App.css';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
+import Spotify from '../../util/Spotify.js';
 
 class App extends Component {
   constructor(props) {
@@ -63,10 +64,13 @@ class App extends Component {
   }
 
   search(term) {
-    console.log(term);
+    //console.log(term);
+    Spotify.search(term).then(searchResults => {
+      this.setState({searchResults: searchResults});
+    });
   }
 
-  //Roy / Save Playlist
+  //1st alternate version  / Save Playlist
   /*savePlaylist() {
   let trackURIs = [];
   this.state.playlistTracks.forEach(track => {
@@ -79,7 +83,7 @@ class App extends Component {
   });
 }*/
 
-//Jeff / Save Playlist
+//2nd alternate version / Save Playlist
 /*savePlaylist(){
   const trackUris = this.state.playlistTracks.map(track => track.uri);
   Spotify.savePlaylist(this.state.playlistName, trackUris).then(() => {
@@ -87,13 +91,13 @@ class App extends Component {
   });
 }*/
 
-//Kincaid / Save Playlist
+//3rd alternate version / Save Playlist
 /*savePlaylist() {
   const trackUris = this.state.playlistTracks.map(playlistTrack => playlistTrack.uri);
   Spotify.savePlaylist(this.state.playlistName, trackUris);
   // Once the playlist is save set the state back to empty
   this.setState({
-    playlistName: "Dan's Playlist",
+    playlistName: "Force's Playlist",
     searchResults: [],
     playlistTracks: []
   });
