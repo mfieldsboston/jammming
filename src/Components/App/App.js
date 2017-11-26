@@ -27,6 +27,8 @@ class App extends Component {
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
+    this.savePlaylist = this.savePlaylist.bind(this);
+    this.search = this.search.bind(this);
   }
 
   addTrack(track) {
@@ -53,6 +55,50 @@ class App extends Component {
     this.setState({playlistName: name});
   }
 
+  savePlaylist(){
+    let trackURIs = [];
+    this.state.playlistTracks.forEach(track => {
+      trackURIs.push(track.uri);
+    });
+  }
+
+  search(term) {
+    console.log(term);
+  }
+
+  //Roy / Save Playlist
+  /*savePlaylist() {
+  let trackURIs = [];
+  this.state.playlistTracks.forEach(track => {
+    trackURIs.push(track.uri);
+  });
+  Spotify.savePlaylist(this.state.playlistName, trackURIs);
+  this.setState({
+    playlistName: 'New Playlist',
+    searchResults: []
+  });
+}*/
+
+//Jeff / Save Playlist
+/*savePlaylist(){
+  const trackUris = this.state.playlistTracks.map(track => track.uri);
+  Spotify.savePlaylist(this.state.playlistName, trackUris).then(() => {
+    this.setState({playlistName: 'New Playlist',playlistTracks: []});
+  });
+}*/
+
+//Kincaid / Save Playlist
+/*savePlaylist() {
+  const trackUris = this.state.playlistTracks.map(playlistTrack => playlistTrack.uri);
+  Spotify.savePlaylist(this.state.playlistName, trackUris);
+  // Once the playlist is save set the state back to empty
+  this.setState({
+    playlistName: "Dan's Playlist",
+    searchResults: [],
+    playlistTracks: []
+  });
+} */
+
   // Alternate Add Track Approach
   /*addTrack(track) {
       if (!this.state.playlistTracks.find(playlistTrack => playlistTrack.id === track.id)) {
@@ -71,15 +117,20 @@ removeTrack(track) {
 }*/
 
   render() {
+    console.log(this.state, 'state');
+    console.log(this.state.playlistName, 'playlistName');
+    console.log(this.state.playlistTracks, 'playlistTracks');
+    console.log(this.state.searchResults, 'searchResults');
+    console.log(this.state.playtestObject, 'playtestObject');
     return (
       <div>
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
         <div className="App">
-          <SearchBar />
+          <SearchBar onSearch={this.search}/>
           <div className="App-playlist">
             <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack}/>
             <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks}
-            onRemove={this.removeTrack} onNameChange={this.updatePlaylistName}/>
+            onRemove={this.removeTrack} onNameChange={this.updatePlaylistName} onSave={this.savePlaylist}/>
           </div>
         </div>
       </div>

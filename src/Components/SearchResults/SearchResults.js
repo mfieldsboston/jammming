@@ -3,6 +3,13 @@ import './SearchResults.css';
 import Tracklist from '../Tracklist/Tracklist';
 
 class SearchResults extends React.Component {
+  constructor(props) {
+    super(props);
+    this.search = this.search.bind(this);
+  }
+  search(term){
+    this.props.onSearch(term);
+  }
   render() {
     return (
       <div className="SearchResults">
