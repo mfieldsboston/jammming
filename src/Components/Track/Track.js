@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-//import React from 'react';
+import React from 'react';
 import './Track.css';
 
 class Track extends React.Component {
@@ -12,16 +11,13 @@ class Track extends React.Component {
 
   addTrack() {
     this.props.onAdd(this.props.track);
-    //console.log('Add track from Track.js:', 'Track:', this.props.track, 'isRemoval:', this.props.isRemoval);
   }
 
   removeTrack() {
     this.props.onRemove(this.props.track);
-    //console.log('Remove track from Track.js', 'Track:', this.props.track, 'isRemoval:', this.props.isRemoval);
   }
 
   renderAction() {
-    //let isRemoval = this.props.isRemoval;
     if (this.props.isRemoval) {
       return <a className="Track-action" onClick={this.removeTrack}>-</a>;
     }

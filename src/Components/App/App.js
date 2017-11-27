@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import React from 'react';
 import './App.css';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
@@ -12,27 +11,13 @@ class App extends Component {
       this.state = {
         searchResults: [],
         playlistTracks: [],
-        /*searchResults:
-        [
-          {name: 'I Think to Myself', artist: 'Top Choice Clique', album: 'Real Chemistry: The Anthology'},
-          {name: 'Push It Past Red', artist: 'Top Choice Clique', album: 'Real Chemistry: The Anthology'},
-          {name: 'Sing A Hymn', artist: 'Top Choice Clique', album: 'Real Chemistry: The Anthology'},
-          {name: 'Peace of Mind', artist: 'Top Choice Clique', album: 'Real Chemistry: The Anthology'},
-          {name: 'Eye of the Cyclone', artist: 'Top Choice Clique', album: 'Real Chemistry: The Anthology'}
-        ],
-        playlistTracks:
-          [
-            {name: 'Turmoil In The Land (vox version)', artist: 'FORCEFEELD', album: 'N/A'},
-            {name: 'Noble Knight', artist: 'FORCEFEELD (Force the Sorcerer)', album: 'Noble Knights EP'},
-            {name: 'Growing Pains', artist: 'FORCEFEELD', album: 'N/A'}
-          ],*/
-          playlistName: 'FORCE Playlist'
+        playlistName: 'FORCE Playlist'
     };
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
-    this.savePlaylist = this.savePlaylist.bind(this);
-    this.search = this.search.bind(this);
+    this.searchSpotify = this.searchSpotify.bind(this);
+    //this.savePlaylist = this.savePlaylist.bind(this);
   }
 
   addTrack(track) {
@@ -59,33 +44,27 @@ class App extends Component {
     this.setState({playlistName: name});
   }
 
-  savePlaylist(){
+  searchSpotify(searchTerm) {
+    Spotify.search(searchTerm).then(searchResults => {
+      this.setState({
+        searchResults: searchResults
+      });
+    });
+  }
+
+  /*savePlaylist(){
     let trackURIs = [];
     this.state.playlistTracks.forEach(track => {
       trackURIs.push(track.uri);
     });
-  }
-
-  search(term) {
-    //console.log(term);
-    Spotify.search(term).then(searchResults => {
-      this.setState({searchResults: searchResults});
-    });
-  }
-
-
+  }*/
 
   render() {
-    console.log(this.state, 'state');
-    console.log(this.state.playlistName, 'playlistName');
-    console.log(this.state.playlistTracks, 'playlistTracks');
-    console.log(this.state.searchResults, 'searchResults');
-    console.log(this.state.playtestObject, 'playtestObject');
     return (
       <div>
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
         <div className="App">
-          <SearchBar onSearch={this.search}/>
+          <SearchBar onSearch={this.searchSpotify}/>
           <div className="App-playlist">
             <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack}/>
             <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks}

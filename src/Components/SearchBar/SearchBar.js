@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-//import React from 'react';
+import React from 'react';
 import './SearchBar.css';
 
 class SearchBar extends React.Component {
@@ -11,15 +10,18 @@ class SearchBar extends React.Component {
     this.search = this.search.bind(this);
     this.handleTermChange = this.handleTermChange.bind(this);
   }
-  search(term){
-    this.props.onSearch(this.state.term);
+
+  search(searchTerm) {
+    this.props.onSearch(this.state.searchTerm);
   }
+
   handleTermChange(e) {
     let newTerm = e.target.value;
     this.setState({
       searchTerm: newTerm
     });
 }
+
   render() {
     return (
       <div className="SearchBar">

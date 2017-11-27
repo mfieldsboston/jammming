@@ -1,7 +1,7 @@
 // Create variables for use in the Spotify Module - FO
+// const clientId = '6615e4eeeb8844aca74f20025fda1d51' Mine;
 const clientId = '6615e4eeeb8844aca74f20025fda1d51';
-const clientSecret = 'facc51f263dd4b97a528f4be1ff3e77b';
-const redirectUri = 'http://localhost:3000/';
+const redirectURI = 'http://localhost:3000/';
 let accessToken;
 
 // Create Spotify Module
@@ -20,50 +20,39 @@ const Spotify = {
         const expiresIn = Number(urlExpiresIn[1]);
         window.setTimeout(() => accessToken = '', expiresIn * 1000);
         window.history.pushState('Access Token', null, '/');
+        console.log(accessToken, 'ACCESS TOKEN!!')
         return accessToken;
       }
       else {
-      const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
+      const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`;
       window.location = accessUrl;
       }
     },
   // Method for searching Spotify for a track
   // Use the access token, send a search request to the Spotify API
-    search(term) {
+     search(searchTerm)  {
       const accessToken = Spotify.getAccessToken();
-  // Send request and Authorization
-      return fetch('https://api.spotify.com/v1/search?type=track&q=term', {
+      return fetch(`https://api.spotify.com/v1/search?type=track&q=${searchTerm}`, {
         headers: {
           Authorization: `Bearer ${accessToken}`
         }
-      })
-  // Convert the response to json with first then method, remember there are
-  // two callbacks within the first then method!!
-      .then(response =>
-              {
-              	if(response.ok) {
-                  return response.json();
-              }
-                throw new Error('Request failed!');
-              },
-            networkError =>
-              {
-                console.log(networkError.message);
-      }).then(jsonResponse =>
-              {
-                if (!jsonResponse.tracks){return [];}
-                return jsonResponse.tracks.items.map(track => ({
-                id: track.id,
-                name: track.name,
-                artist: track.artists[0].name,
-                album: track.album.name,
-                uri: track.uri
-             }));
-        });
-      },
-      savePlaylist() {
 
-      }
+      }).then(response => {
+        console.log(response, 'PROMISE!!');
+        return response.json();
+      }).then(jsonResponse => {
+        if (!jsonResponse.tracks) {
+          return [];
+        }
+        return jsonResponse.tracks.items.map(track => ({
+          id: track.id,
+          name: track.name,
+          artist: track.artists[0].name,
+          album: track.album.name,
+          uri: track.uri
+        }));
+      });
+    }
   };
 
 
