@@ -16,7 +16,7 @@ handleNameChange(e) {
 render() {
     return (
       <div className="Playlist">
-        <input defaultValue={'New Playlist'} onChange={this.handleNameChange}/>
+        <input value={this.props.name} onChange={this.handleNameChange}/>
         <Tracklist isRemoval={true} tracks={this.props.playlistTracks} onRemove={this.props.onRemove}/>
         <a className="Playlist-save" onClick={this.props.onSave}>SAVE TO SPOTIFY</a>
       </div>
