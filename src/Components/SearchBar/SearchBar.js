@@ -22,7 +22,7 @@ class SearchBar extends React.Component {
     });
 }
 
-  render() {
+render() {
     return (
       <div className="SearchBar">
         <input placeholder="Enter A Song, Album, or Artist"

@@ -1,5 +1,4 @@
-// Create variables for use in the Spotify Module - FO
-// const clientId = '6615e4eeeb8844aca74f20025fda1d51' Mine;
+// Create variables for use in the Spotify Module
 const clientId = '6615e4eeeb8844aca74f20025fda1d51';
 const redirectURI = 'http://localhost:3000/';
 let accessToken;
@@ -28,7 +27,7 @@ const Spotify = {
       window.location = accessUrl;
       }
     },
-  // Method for searching Spotify for a track
+
   // Use the access token, send a search request to the Spotify API
      search(searchTerm)  {
       const accessToken = Spotify.getAccessToken();
@@ -38,7 +37,6 @@ const Spotify = {
         }
 
       }).then(response => {
-        console.log(response, 'PROMISE!!');
         return response.json();
       }).then(jsonResponse => {
         if (!jsonResponse.tracks) {
