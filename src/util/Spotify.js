@@ -19,7 +19,6 @@ const Spotify = {
         const expiresIn = Number(urlExpiresIn[1]);
         window.setTimeout(() => accessToken = '', expiresIn * 1000);
         window.history.pushState('Access Token', null, '/');
-        console.log(accessToken, 'ACCESS TOKEN!!')
         return accessToken;
       }
       else {
@@ -42,6 +41,7 @@ const Spotify = {
         if (!jsonResponse.tracks) {
           return [];
         }
+
         return jsonResponse.tracks.items.map(track => ({
           id: track.id,
           name: track.name,
