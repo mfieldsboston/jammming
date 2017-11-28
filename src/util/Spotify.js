@@ -1,14 +1,14 @@
 // Create variables for use in the Spotify Module
 const clientId = '6615e4eeeb8844aca74f20025fda1d51';
-//const redirectURI = 'http://localhost:3000/';
-const redirectURI = 'http://mfieldsjammming.surge.sh';
+const redirectURI = 'http://localhost:3000/';
+//const redirectURI = 'http://mfieldsjammming.surge.sh';
 let accessToken;
 
-
+// Create Spotify Module
 const Spotify = {
-
+// Get a Spotify user's access token
   getAccessToken() {
-
+// Method to check if there is an access token, if not create one
     if (accessToken) {
       return accessToken;
     }
@@ -28,7 +28,7 @@ const Spotify = {
       }
     },
 
-
+  // Use the access token, send a search request to the Spotify API
      search(searchTerm)  {
       const accessToken = Spotify.getAccessToken();
       return fetch(`https://api.spotify.com/v1/search?type=track&q=${searchTerm}`, {
@@ -52,7 +52,7 @@ const Spotify = {
         }));
       });
     },
-
+    // Save the user's created playlist to their Spotify account
     savePlaylist(name, trackUris){
        if(!name || !trackUris) {return;}
 
