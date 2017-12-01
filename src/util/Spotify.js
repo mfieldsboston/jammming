@@ -1,7 +1,7 @@
 // Create variables for use in the Spotify Module
 const clientId = '6615e4eeeb8844aca74f20025fda1d51';
-const redirectURI = 'http://localhost:3000/';
-//const redirectURI = 'http://mfieldsjammming.surge.sh';
+//const redirectURI = 'http://localhost:3000/';
+const redirectURI = 'http://mfieldsjammming.surge.sh';
 let accessToken;
 
 // Create Spotify Module
